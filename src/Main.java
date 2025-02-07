@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
+            //Connection to SQL database
             Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3307/login_info",
                     "root",
                     "parola1");
