@@ -1,14 +1,7 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.*;
-
-
+//Run point of the program
 public class ControlPanel {
 
     public static void main(String[] args) {
-
         new Frame();
     }
 }

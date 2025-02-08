@@ -5,7 +5,14 @@ public class Passwords {
 
     public static int id_generator = 1;
 
+    void checkId_Generator() {
+        if(id_generator == 100) {
+            id_generator = 1;
+        }
+    }
+
     void displayPasswords() {
+        checkId_Generator();
         try {
             //Connection to SQL database
             Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3307/login_info",
@@ -26,6 +33,7 @@ public class Passwords {
     }
 
     void addPassword(int index, String place, String password) {
+        checkId_Generator();
         String sql = "INSERT INTO users (id, place, password) VALUES (?, ?, ?)";
 
         try {
@@ -45,9 +53,9 @@ public class Passwords {
                 System.out.println("Data inserted successfully!");
             }
 
+            id_generator++;
             stmt.close();
             conn.close();
-            id_generator++;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
